@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Ruan Ferreira</title>
+    <title>{{blog.title}}</title>
 
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 
@@ -46,9 +46,10 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav ml-auto">
-                <a class="nav-item nav-link" href="{% url 'allblog' %}">Blog</a>
-                <a class="nav-item nav-link" href="https://www.linkedin.com/in/ruan-ferreira-87a15a180/"
-                    target="_blank">My Linkedin <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link active" href="{% url 'allblog' %}">Blog</a>
+                <a class="nav-item nav-link" href="https://www.linkedin.com/in/ruan-ferreira-87a15a180/ "
+                    target="_blank">My Linkedin
+                    <span class="sr-only">(current)</span></a>
                 <a class="nav-item nav-link" href="{% static 'curriculo.pdf' %}">My Curriculum</a>
             </div>
         </div>
@@ -56,36 +57,22 @@
     </header>
 
     <main role="main">
+        <div class="container">
 
-        <section class="jumbotron text-center">
-            <div class="container">
-                <h1 class="jumbotron-heading">Hi, I'm Ruan!</h1>
-                <p class="lead text-muted">Welcome to the album of my jobs!</p>
-                <p>
-                    <a href="#" class="btn btn-primary my-2">Contact me.</a>
-                </p>
-                <img src="{% static 'eu.jpg' %}" height=400 width="300" />
-            </div>
-        </section>
-
-        <div class="album py-5 bg-light">
-            <div class="container">
-
-                <div class="row">
-                    {% for job in jobs.all %}
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
-                            <img class="card-img-top" src="{{ job.image.url }}" />
-                            <div class="card-body">
-                                <p class="card-text">{{job.summary}}</p>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
+            <section class="jumbotron text-center pt-3 pb-3">
+                <div class="container">
+                    <h1 class="jumbotron-heading">{{blog.title}}</h1>
                 </div>
-            </div>
+            </section>
+            <p class='blockquote-footer text-right'>{{blog.pub_date_resume}}</p>
+            <br>
+            <img class="rounded mx-auto d-block" src="{{ blog.image.url }}" height=600 />
+            <br>
+            <br>
+            <p class="card-text">{{blog.summary}}</p>
+            <br>
+            <br>
         </div>
-
     </main>
 
     <footer class="text-muted">
