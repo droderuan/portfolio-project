@@ -137,3 +137,8 @@ MEDIA_URL = '/media/'
 # Configure Django App for Heroku.
 import django_heroku
 django_heroku.settings(locals())
+
+try:
+    from local_setting.py import *
+except ImportError:
+    pass
